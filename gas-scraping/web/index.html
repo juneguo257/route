@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Route · Philadelphia fuel prices</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a class="wordmark" href="./" aria-label="Route home">route<span>↗</span></a>
+    <span class="project-label">FUEL EXPLORER <span class="prototype">PROTOTYPE</span></span>
+    <a class="download" href="prices.csv" download>Download CSV ↓</a>
+  </header>
+  <main>
+    <aside>
+      <div class="intro"><p class="eyebrow">GREATER PHILADELPHIA</p><h1>A better place<br>to fill up.</h1><p id="scope"></p></div>
+      <div class="controls">
+        <label>Data source<select id="source"><option value="gasbuddy">GasBuddy export</option><option value="retailers">Retailer export</option></select></label>
+        <label>Payment basis<select id="payment"><option value="credit">Credit</option><option value="cash">Cash</option></select></label>
+        <label>Fuel grade<select id="grade"><option value="regular">Regular</option><option value="premium">Premium</option><option value="diesel">Diesel</option><option value="midgrade">Midgrade</option></select></label>
+        <label>Brand<select id="brand"><option value="all">All brands</option></select></label>
+        <label>State<select id="state"><option value="all">All states</option></select></label>
+        <label>Sort by<select id="sort"><option value="price">Lowest price</option><option value="distance">Nearest Center City</option></select></label>
+      </div>
+      <div class="results-heading"><strong id="count" aria-live="polite"></strong><span>USD / US gallon</span></div>
+      <p id="snapshot-status" role="status" class="snapshot-status"></p>
+      <div id="results" aria-label="Stations"></div>
+      <div class="coverage"><strong>About these results</strong><p id="coverage"></p><p id="price-notes"></p><p>Distances are straight-line miles from Center City, not driving distance. Trips to nearby states may involve bridge tolls.</p><details><summary>Collection status</summary><ul id="sources"></ul></details><p id="generated"></p></div>
+    </aside>
+    <section class="map-panel" aria-label="Philadelphia station map">
+      <div id="map" role="region" aria-label="Interactive OpenStreetMap"></div>
+      <div class="map-caption"><span class="dot"></span><span id="map-basis">Saved price snapshot</span><button id="fit" type="button">Show all results</button></div>
+      <p id="map-error" class="map-error" role="alert" hidden></p>
+    </section>
+  </main>
+  <script id="route-data" type="application/json">__ROUTE_DATA__</script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="data.js"></script>
+  <script src="map.js"></script>
+</body>
+</html>
